@@ -1,11 +1,18 @@
 package Main;
 
-import Graph.*;
+import Graph.Graph;
+import ReadFile.*;
 
 public class Main {
-	public static void main(String[] args){
+	public static void main(String[] args) throws ErrorHandling {
+		
+		ReadFile read = new ReadFile();
+		read.readFile();
 		
 		Graph graph = Graph.getInstance();
+		System.out.println(graph.toString());
+		
+		/*
 		
 		graph.addVertex(0,new Vertex(0,"Radom"));
 		graph.addVertex(1,new Vertex(1,"Warszawa"));
@@ -17,7 +24,7 @@ public class Main {
 		graph.addEdge(0,new Edge(200,2));
 		graph.addEdge(1,new Edge(10,3));
 		graph.addEdge(2,new Edge(15,3));
-
-		System.out.println(graph);
+		
+		*/
 	}
 }
