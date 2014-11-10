@@ -17,6 +17,7 @@ public class Edge {
 		return whereTo;
 	}
 	
+	@Override
 	public String toString(){
 		return "do: " + whereTo + " waga: " + weight;
 	}
