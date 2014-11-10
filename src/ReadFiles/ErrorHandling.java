@@ -1,4 +1,4 @@
-package ReadFile;
+package ReadFiles;
 
 public class ErrorHandling extends Exception {
 
