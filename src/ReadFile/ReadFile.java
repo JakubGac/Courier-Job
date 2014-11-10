@@ -28,7 +28,7 @@ public class ReadFile {
 	private void fileOne() throws ErrorHandling {
 		
 		try {
-			file = new FileReader("Cities.txt");
+			file = new FileReader("EntryFiles/Cities.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
@@ -57,7 +57,7 @@ public class ReadFile {
 	private void fileTwo() throws ErrorHandling {
 		
 		try {
-			file = new FileReader("Connections.txt");
+			file = new FileReader("EntryFiles/Connections.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
