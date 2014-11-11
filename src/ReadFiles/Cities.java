@@ -20,13 +20,23 @@ public class Cities implements ReadFile {
 		linia = "";
 	}
 	
-	public void read() throws ErrorHandling {
+	public void read() throws ErrorHandling{
+		openFile();
+		
+		readFile();
+		
+		closeFile();
+	}
+	
+	private void openFile() throws ErrorHandling {
 		try {
 			file = new FileReader("EntryFiles/Cities.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
-		
+	}
+	
+	private void readFile() throws ErrorHandling {
 		bfr = new BufferedReader(file);
 		
 		try {
@@ -40,6 +50,9 @@ public class Cities implements ReadFile {
 			throw new ErrorHandling( e.getMessage() );	
 		}
 		
+	}
+	
+	private void closeFile() throws ErrorHandling {
 		try {
 			file.close();
 		} catch ( IOException e ) {

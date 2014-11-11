@@ -3,9 +3,9 @@ package Graph;
 import java.util.Vector;
 
 public class Vertex {
-	int number;
-	String city;
-	Vector<Edge> edges = new Vector<Edge>();
+	private int number;
+	private String city;
+	private Vector<Edge> edges = new Vector<Edge>();
 	
 	public Vertex(int number,String city){
 		this.number = number;

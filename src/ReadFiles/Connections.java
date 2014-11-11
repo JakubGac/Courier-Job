@@ -21,13 +21,23 @@ public class Connections implements ReadFile {
 	}
 	
 	public void read() throws ErrorHandling {
+		openFile();
 		
+		readFile();
+		
+		closeFile();
+		
+	}
+	
+	private void openFile() throws ErrorHandling {
 		try {
 			file = new FileReader("EntryFiles/Connections.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
-		
+	}
+	
+	private void readFile() throws ErrorHandling {
 		bfr = new BufferedReader(file);
 		
 		try {
@@ -40,12 +50,13 @@ public class Connections implements ReadFile {
 		} catch ( NumberFormatException e ) {
 			throw new ErrorHandling( e.getMessage() );	
 		}
-		
+	}
+	
+	private void closeFile() throws ErrorHandling {
 		try {
 			file.close();
 		} catch ( IOException e ) {
 			throw new ErrorHandling( e.getMessage() );	 
 		}
-		
 	}
 }

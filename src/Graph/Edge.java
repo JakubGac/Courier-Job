@@ -1,8 +1,8 @@
 package Graph;
 
 public class Edge {
-	int weight;
-	int whereTo;
+	private int weight;
+	private int whereTo;
 	
 	public Edge(int weight, int whereTo){
 		this.weight = weight;
