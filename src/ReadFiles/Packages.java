@@ -5,33 +5,31 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import GraphSingleton.Edge;
-import GraphSingleton.GraphSingleton;
+import Package.*;
+import Package.Package;
 
-public class Connections implements ReadFile {
+public class Packages implements ReadFile {
 	private FileReader file;
 	private String linia;
-	private GraphSingleton graph;
+	private PackageSingleton packageSingleton ;
 	private BufferedReader bfr;
 	
-	public Connections(){
-		graph = GraphSingleton.getInstance();
+	public Packages(){
+		packageSingleton = PackageSingleton.getInstance();
 		file = null;
 		linia = "";
 	}
 	
+	
 	public void read() throws ErrorHandling {
 		openFile();
-		
 		readFile();
-		
 		closeFile();
-		
 	}
 	
 	private void openFile() throws ErrorHandling {
 		try {
-			file = new FileReader("EntryFiles/Connections.txt");
+			file = new FileReader("EntryFiles/Packages.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
@@ -43,7 +41,11 @@ public class Connections implements ReadFile {
 		try {
 			while((linia = bfr.readLine()) != null){
 				String[] linia2 = linia.split(" ");
-				graph.addEdge( Integer.parseInt(linia2[0]) , new Edge( Integer.parseInt(linia2[2]) , Integer.parseInt(linia2[1]) ) );
+					packageSingleton.addPackage(new Package(Integer.parseInt(linia2[0]),
+						Integer.parseInt(linia2[1]),
+							Integer.parseInt(linia2[2]),
+							linia2[3] + " " + linia2[4] + " " + linia2[5],
+							Integer.parseInt(linia2[6])));
 			}
 		} catch ( IOException e ) {
 			throw new ErrorHandling( e.getMessage() );	

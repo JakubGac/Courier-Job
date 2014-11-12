@@ -5,17 +5,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import Graph.Graph;
-import Graph.Vertex;
+import GraphSingleton.GraphSingleton;
+import GraphSingleton.Vertex;
 
 public class Cities implements ReadFile {
 	private FileReader file;
 	private String linia;
-	private Graph graph;
+	private GraphSingleton graph;
 	private BufferedReader bfr;
 	
 	public Cities(){
-		graph = Graph.getInstance();
+		graph = GraphSingleton.getInstance();
 		file = null;
 		linia = "";
 	}

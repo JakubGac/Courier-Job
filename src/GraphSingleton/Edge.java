@@ -1,4 +1,4 @@
-package Graph;
+package GraphSingleton;
 
 public class Edge {
 	private int weight;

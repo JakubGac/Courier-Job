@@ -5,12 +5,14 @@ public class Package {
 	String content;
 	int fromWhere;
 	int whereTo;
+	int number;
 	
-	public Package(int priorytate, String content,int fromWhere,int whereTo){
-		this.priorytate = priorytate;
-		this.content = content;
+	public Package(int number, int fromWhere, int whereTo, String content, int priorytate){
+		this.number = number;
 		this.fromWhere = fromWhere;
 		this.whereTo = whereTo;
+		this.content = content;
+		this.priorytate = priorytate;
 	}
 	
 	public int getPriorytate(){
@@ -28,5 +30,11 @@ public class Package {
 	public int getWhereTo(){
 		return whereTo;
 	}
-
+	
+	@Override
+	public String toString(){
+		return number + " " + fromWhere + " " +
+				whereTo + " " + content + " " +
+				priorytate;
+	}
 }

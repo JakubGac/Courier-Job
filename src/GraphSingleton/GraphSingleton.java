@@ -1,19 +1,19 @@
-package Graph;
+package GraphSingleton;
 
 import java.util.Vector;
 
-public class Graph {
-	private static Graph instance = null;
+public class GraphSingleton {
+	private static GraphSingleton instance = null;
 	private Vector<Vertex> vertex;
 	
-	private Graph(){
+	private GraphSingleton(){
 		vertex = new Vector<Vertex>();
 	}
 	
-	public static synchronized Graph getInstance(){
+	public static synchronized GraphSingleton getInstance(){
 		
 		if(instance == null){
-			instance = new Graph();
+			instance = new GraphSingleton();
 			return instance;
 		}
 		return instance;

@@ -1,4 +1,4 @@
-package Graph;
+package GraphSingleton;
 
 import java.util.Vector;
 
