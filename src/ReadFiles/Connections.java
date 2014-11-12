@@ -22,11 +22,8 @@ public class Connections implements ReadFile {
 	
 	public void read() throws ErrorHandling {
 		openFile();
-		
 		readFile();
-		
 		closeFile();
-		
 	}
 	
 	private void openFile() throws ErrorHandling {

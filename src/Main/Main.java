@@ -17,7 +17,7 @@ public class Main {
 		
 		GraphSingleton graph = GraphSingleton.getInstance();
 		PackageSingleton packagesList = PackageSingleton.getInstance();
-		System.out.println(graph.toString());
-		System.out.println(packagesList.toString());
+		System.out.println(graph);
+		System.out.println(packagesList);
 	}
 }

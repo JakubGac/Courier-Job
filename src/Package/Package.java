@@ -1,11 +1,11 @@
 package Package;
 
 public class Package {
-	int priorytate;
-	String content;
-	int fromWhere;
-	int whereTo;
-	int number;
+	private int priorytate;
+	private String content;
+	private int fromWhere;
+	private int whereTo;
+	private int number;
 	
 	public Package(int number, int fromWhere, int whereTo, String content, int priorytate){
 		this.number = number;

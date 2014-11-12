@@ -22,9 +22,7 @@ public class Cities implements ReadFile {
 	
 	public void read() throws ErrorHandling{
 		openFile();
-		
 		readFile();
-		
 		closeFile();
 	}
 	
