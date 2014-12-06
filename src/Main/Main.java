@@ -1,5 +1,6 @@
 package Main;
 
+import DijkstraAlgorithm.Dijkstra;
 import GraphSingleton.*;
 import ReadFiles.*;
 import Package.*;
@@ -17,7 +18,13 @@ public class Main {
 		
 		GraphSingleton graph = GraphSingleton.getInstance();
 		PackageSingleton packagesList = PackageSingleton.getInstance();
+		
 		System.out.println(graph);
-		System.out.println(packagesList);
+		
+		Dijkstra dijkstra = new Dijkstra(graph.getVector(),0,graph.getLength());
+		dijkstra.start();
+		
+		System.out.println(graph);
 	}
 }
+  

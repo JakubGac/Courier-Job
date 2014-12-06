@@ -24,6 +24,14 @@ public class Vertex {
 		return number;
 	}
 	
+	public Integer getEdgesLength(){
+		return edges.size();
+	}
+	
+	public Edge getEdge(Integer i){
+		return edges.elementAt(i);
+	}
+	
 	@Override
 	public String toString(){
 		return number + " " + city + edges;

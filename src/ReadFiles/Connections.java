@@ -28,7 +28,7 @@ public class Connections implements ReadFile {
 	
 	private void openFile() throws ErrorHandling {
 		try {
-			file = new FileReader("EntryFiles/Connections.txt");
+			file = new FileReader("EntryFiles/Connections2.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
@@ -41,6 +41,7 @@ public class Connections implements ReadFile {
 			while((linia = bfr.readLine()) != null){
 				String[] linia2 = linia.split(" ");
 				graph.addEdge( Integer.parseInt(linia2[0]) , new Edge( Integer.parseInt(linia2[2]) , Integer.parseInt(linia2[1]) ) );
+				graph.addEdge( Integer.parseInt(linia2[1]) , new Edge( Integer.parseInt(linia2[2]) , Integer.parseInt(linia2[0]) ) );
 			}
 		} catch ( IOException e ) {
 			throw new ErrorHandling( e.getMessage() );	
