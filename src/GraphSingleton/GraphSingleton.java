@@ -27,6 +27,10 @@ public class GraphSingleton {
 		vertex.elementAt(i).addEdge(e);
 	}
 	
+	public Vertex getVertex(Integer i){
+		return vertex.elementAt(i);
+	}
+	
 	public Integer getLength(){
 		return vertex.size();
 	}

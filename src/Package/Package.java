@@ -1,22 +1,36 @@
 package Package;
 
 public class Package {
-	private int priorytate;
+	private int priority;
 	private String content;
 	private int fromWhere;
 	private int whereTo;
 	private int number;
+	private boolean used;
 	
 	public Package(int number, int fromWhere, int whereTo, String content, int priorytate){
 		this.number = number;
 		this.fromWhere = fromWhere;
 		this.whereTo = whereTo;
 		this.content = content;
-		this.priorytate = priorytate;
+		this.priority = priorytate;
+		used = false;
 	}
 	
-	public int getPriorytate(){
-		return priorytate;
+	public void setUsed(){
+		used = true;
+	}
+	
+	public int getNumber(){
+		return number;
+	}
+	
+	public int getfromWhere(){
+		return fromWhere;
+	}
+	
+	public int getPrioritate(){
+		return priority;
 	}
 	
 	public String getContent(){
@@ -31,10 +45,14 @@ public class Package {
 		return whereTo;
 	}
 	
+	public boolean getUsed(){
+		return used;
+	}
+	
 	@Override
 	public String toString(){
 		return number + " " + fromWhere + " " +
 				whereTo + " " + content + " " +
-				priorytate;
+				priority;
 	}
 }

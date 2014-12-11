@@ -29,28 +29,15 @@ public class Dijkstra {
 		
 		while( doneVertex.size() < vertexAmount*2 -1 ){
 			if(helpVertex == startVertex){
-				System.out.println("pêtla pocz¹tkowa + vertex" + helpVertex);
 				doneVertex.add(helpVertex);
 				neighbour(helpVertex);
 				helpVertex = searchVertex(vertex.elementAt(helpVertex));
 			} else {
-				System.out.println("pêtla druga + vertex" + helpVertex);
 				doneVertex.add(helpVertex);
 				neighbour(helpVertex);
 				helpVertex = searchVertex(vertex.elementAt(helpVertex));
 			}	
 		}
-		
-		for(int i=0 ; i < costs.length ; i++){
-			System.out.println(costs[i]);
-		}
-		
-		System.out.println();
-		
-		for(int i=0 ; i < previousVertex.length ; i++){
-			System.out.println(previousVertex[i]);
-		}
-		
 	}
 	
 	private void prepare(){
@@ -87,10 +74,13 @@ public class Dijkstra {
 				previousVertex[neighbour] = actualVertex;
 			}
 		}
-		System.out.println("costs");
-		for(int i=0 ; i < costs.length ; i++){
-			System.out.println(costs[i]);
-		}
-		System.out.println("koniec");
+	}
+
+	public Integer[] getCosts(){
+		return costs;
+	}
+
+	public Integer[] getPreviousVertex(){
+		return previousVertex;
 	}
 }

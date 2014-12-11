@@ -22,6 +22,14 @@ public class PackageSingleton {
 		packagesList.addElement(p);
 	}
 	
+	public Package getPackage(int i){
+		return packagesList.elementAt(i);
+	}
+	
+	public Integer getSize(){
+		return packagesList.size();
+	}
+	
 	@Override
 	public String toString(){
 		return packagesList.toString();

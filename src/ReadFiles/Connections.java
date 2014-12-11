@@ -28,7 +28,7 @@ public class Connections implements ReadFile {
 	
 	private void openFile() throws ErrorHandling {
 		try {
-			file = new FileReader("EntryFiles/Connections2.txt");
+			file = new FileReader("EntryFiles/Connections.txt");
 		} catch (FileNotFoundException e) {
 			throw new ErrorHandling( e.getMessage() );	   
 		}
