@@ -1,23 +1,20 @@
 package AssigningPackages.States;
 
 import java.util.Vector;
-
 import GraphSingleton.GraphSingleton;
 import Package.Package;
 import Package.PackageSingleton;
 
 public class FirstState implements Runnable {
 	// 1 car, capacity 1
-	private Vector<Package> packageList;
+	private Vector<Package> listPackage;
 	private Integer[] costs;
 	private GraphSingleton graph;
-	private PackageSingleton packageSingleton;
-	
-	public FirstState(Vector<Package> packageList,Integer[] costs){
-		this.packageList = packageList;
+	public FirstState(Vector<Package> listPackage,Integer[] costs){
+		this.listPackage = listPackage;
 		this.costs = costs;
 		graph = GraphSingleton.getInstance();
-		packageSingleton = PackageSingleton.getInstance();
+		PackageSingleton.getInstance();
 	}
 	
 	@Override
@@ -25,14 +22,13 @@ public class FirstState implements Runnable {
 		try {
 			begin();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	private void begin() throws InterruptedException{
-		for(int i=0 ; i < packageList.size() ; i++){
-			sendCar(packageList.get(i),i);
+	public void begin() throws InterruptedException{
+		for(int i=0 ; i < listPackage.size() ; i++){
+			sendCar(listPackage.get(i),i);
 		}
 	}
 	
@@ -48,6 +44,5 @@ public class FirstState implements Runnable {
 				+ " do miasta " + graph.getVertex(p.getWhereTo()).getCity());
 		Thread.sleep( sleepingTime );
 		System.out.println();
-		packageSingleton.removePackage(p);
 	}
 }

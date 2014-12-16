@@ -15,13 +15,15 @@ public class SecondState implements Runnable {
 	private PackageSingleton packageSingleton;
 	private Integer currentVertex;
 	private Integer capacity;
+	private Integer carsAmount;
 	
-	public SecondState(Vector<Package> packageList,Integer[] costs, Integer capacity){
+	public SecondState(Vector<Package> packageList,Integer[] costs, Integer capacity, Integer carsAmount){
 		this.packageList = packageList;
 		this.costs = costs;
 		graph = GraphSingleton.getInstance();
 		this.capacity = capacity;
 		packageSingleton = PackageSingleton.getInstance();
+		this.carsAmount = carsAmount;
 	}
 	
 	@Override
@@ -49,6 +51,11 @@ public class SecondState implements Runnable {
 		
 	}
 	
+	public void begin2(Integer i){
+
+	}
+
+	
 	private Integer countSeries(){
 		Integer series=1;
 		Integer help = 0;
@@ -68,7 +75,6 @@ public class SecondState implements Runnable {
 				help++;
 			}
 		}
-			
 		return help; 
 	}
 	

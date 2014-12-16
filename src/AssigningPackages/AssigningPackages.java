@@ -33,13 +33,13 @@ public class AssigningPackages {
 				Thread thread = new Thread(firstState);
 				thread.start();
 			} else {
-				SecondState secondState = new SecondState(packagesList,costs,capacity);
+				SecondState secondState = new SecondState(packagesList,costs,capacity,carNumber);
 				Thread thread = new Thread(secondState);
 				thread.start();
 			}
 		} else {
 			if(capacity == 1){
-				ThirdState thirdState = new ThirdState(packagesList,costs);
+				ThirdState thirdState = new ThirdState(packagesList,costs,carNumber);
 				thirdState.begin();
 			} else {
 				FourthState fourthState = new FourthState(packagesList,costs);

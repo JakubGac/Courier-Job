@@ -5,7 +5,6 @@ import AssigningPackages.*;
 
 public class Main {
 	public static void main(String[] args) throws ErrorHandling, InterruptedException {
-		long start = System.nanoTime();
 		
 		//wczytywanie danych z plików
 		ReadFile cities = new Cities();
@@ -16,11 +15,9 @@ public class Main {
 		packages.read();
 		
 		//tutaj wszystko się dzieje 
-		FindPackage findPackage = new FindPackage(1,5);
+		FindPackage findPackage = new FindPackage(3,1);
 		findPackage.find();
 		
-		long czas = ((System.nanoTime() - start)/1000);
-		System.out.println("Czas działania programu: " + czas);
 	}
 }
   
