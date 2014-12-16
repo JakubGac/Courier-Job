@@ -22,6 +22,14 @@ public class PackageSingleton {
 		packagesList.addElement(p);
 	}
 	
+	public void removePackage(Package p){
+		packagesList.remove(p);
+	}
+	
+	public boolean isEmpty(){
+		return packagesList.isEmpty();
+	}
+	
 	public Package getPackage(int i){
 		return packagesList.elementAt(i);
 	}

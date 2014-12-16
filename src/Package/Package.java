@@ -7,6 +7,7 @@ public class Package {
 	private int whereTo;
 	private int number;
 	private boolean used;
+	private int series;
 	
 	public Package(int number, int fromWhere, int whereTo, String content, int priorytate){
 		this.number = number;
@@ -15,6 +16,10 @@ public class Package {
 		this.content = content;
 		this.priority = priorytate;
 		used = false;
+	}
+	
+	public void setSeries(Integer series){
+		this.series = series;
 	}
 	
 	public void setUsed(){
@@ -49,10 +54,14 @@ public class Package {
 		return used;
 	}
 	
+	public int getSeries(){
+		return series;
+	}
+	
 	@Override
 	public String toString(){
 		return number + " " + fromWhere + " " +
 				whereTo + " " + content + " " +
-				priority;
+				priority + " " + series;
 	}
 }

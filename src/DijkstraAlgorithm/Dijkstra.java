@@ -62,7 +62,7 @@ public class Dijkstra {
 			return which;
 	}
 	
-	private void neighbour(Integer actualVertex){
+	private void neighbour(Integer actualVertex){ // dodaje s¹siada do liszty costs
 		Integer neighbour;
 		
 		for(int i=0 ; i < vertex.elementAt(actualVertex).getEdgesLength() ; i++){

@@ -1,15 +1,15 @@
 package Package;
 
+import java.util.Vector;
+
 public class SearchingPackage {
-	private Integer whereTo;
-	private PackageSingleton packagesList;
+	private PackageSingleton packageSingleton;
 	private Integer whichPackage;
 	private Integer priority;
 	private Integer howMany ;
 	
 	public SearchingPackage(){
-		packagesList = PackageSingleton.getInstance();
-		whereTo = 0;
+		packageSingleton = PackageSingleton.getInstance();
 		whichPackage = 0;
 		priority = 0;
 		howMany = 0;
@@ -17,40 +17,44 @@ public class SearchingPackage {
 	
 	public Package find(){
 		whichPackage = 0;
-		for(int i=0 ; i < packagesList.getSize() ; i++){
-			if(!(packagesList.getPackage(i).getUsed())){
-				if(packagesList.getPackage(i).getPrioritate() > priority){
-					priority = packagesList.getPackage(i).getPrioritate();
-					whichPackage = packagesList.getPackage(i).getNumber();
-					whereTo = packagesList.getPackage(i).getWhereTo();
+		priority = 0;
+		Package p = null;
+		for(int i=0 ; i < packageSingleton.getSize() ; i++){
+			if(!(packageSingleton.getPackage(i).getUsed())){
+				if(packageSingleton.getPackage(i).getPrioritate() > priority){
+					priority = packageSingleton.getPackage(i).getPrioritate();
+					p = packageSingleton.getPackage(i);
+					whichPackage = packageSingleton.getPackage(i).getNumber();
+					packageSingleton.getPackage(i).getWhereTo();
 				}
 			}
-		}	
+		}
 		setUsed(whichPackage);
-		return packagesList.getPackage(whichPackage-1);
+		return p;
 	}
 	
-	public Package findAnother(Integer whereTo){
+	public void findAnother(Integer whereTo,Vector<Package> packagesList){
 		whichPackage = 0;
-		this.whereTo = whereTo;
-		for(int i=0 ; i < packagesList.getSize() ; i++){
-			if(!(packagesList.getPackage(i).getUsed())){
-				if(packagesList.getPackage(i).getWhereTo() == whereTo){
-					priority = packagesList.getPackage(i).getPrioritate();
-					whichPackage = packagesList.getPackage(i).getNumber();
+		Package p = null;
+		for(int j=0 ; j < checkedAnother(whereTo) ; j++){
+			for(int i=0 ; i < packageSingleton.getSize() ; i++){
+				if(!(packageSingleton.getPackage(i).getUsed())){
+					if(packageSingleton.getPackage(i).getWhereTo() == whereTo){
+						p = packageSingleton.getPackage(i);
+						whichPackage = packageSingleton.getPackage(i).getNumber();
+						setUsed(whichPackage);
+						packagesList.addElement(p);
+					}
 				}
 			}
-		}	
-		setUsed(whichPackage);
-		return packagesList.getPackage(whichPackage-1);
+		}
 	}
 
-	public Integer checkedAnother(Integer whereTo){
-		this.whereTo = whereTo;
+	private Integer checkedAnother(Integer whereTo){
 		howMany = 0;
-		for(int i=0 ; i < packagesList.getSize() ; i++){
-			if(!packagesList.getPackage(i).getUsed()){
-				if(packagesList.getPackage(i).getWhereTo() == whereTo){
+		for(int i=0 ; i < packageSingleton.getSize() ; i++){
+			if(!packageSingleton.getPackage(i).getUsed()){
+				if(packageSingleton.getPackage(i).getWhereTo() == whereTo){
 					howMany++;
 				}
 			}
@@ -59,14 +63,14 @@ public class SearchingPackage {
 	}
 	
 	private void setUsed(Integer a){
-		for(int i=0 ; i < packagesList.getSize() ; i++){
-			if(packagesList.getPackage(i).getNumber() == a){
-				packagesList.getPackage(i).setUsed();
+		for(int i=0 ; i < packageSingleton.getSize() ; i++){
+			if(packageSingleton.getPackage(i).getNumber() == a){
+				packageSingleton.getPackage(i).setUsed();
 			}
 		}
 	}
 	
 	public String getName(){
-		return packagesList.getPackage(whichPackage-1).getContent();
+		return packageSingleton.getPackage(whichPackage-1).getContent();
 	}
 }

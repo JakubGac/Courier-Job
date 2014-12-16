@@ -1,5 +1,6 @@
 001 3 0 Laptop dla p.Kowalskiego 50
 002 3 2 Robot dla Nasa 100
-003 3 0 Paczka indeksow PW 0
+003 3 0 Paczka indeksow PW 1
 004 3 1 Pudelka dla IKEA 10
 005 3 2 Gra dla Lessi 80
+006 3 2 Wibrator dla Lessi 30
